@@ -1,7 +1,7 @@
 {
   "name": "drupal/doc_workout",
   "type": "drupal-module",
-  "description": "Generate an workout using the Deck of Cards (DOC) approach.",
+  "description": "Generate a workout using the Deck of Cards (DOC) approach.",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
   "homepage": "https://www.drupal.org/project/doc_workout",
