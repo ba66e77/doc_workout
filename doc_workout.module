@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains doc_workout.module..
+ * Contains doc_workout.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -24,7 +24,7 @@ function doc_workout_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * Impeements hook_cron().
+ * Implements hook_cron().
  */
 function doc_workout_cron() {
   
