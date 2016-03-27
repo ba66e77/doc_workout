@@ -1,0 +1,5 @@
+name: DOC Workout
+type: module
+description: Generate an workout using the Deck of Cards (DOC) approach.
+core: 8.x
+package: Custom

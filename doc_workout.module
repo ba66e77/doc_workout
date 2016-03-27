@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Contains doc_workout.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function doc_workout_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the doc_workout module.
+    case 'help.page.doc_workout':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Generate an workout using the Deck of Cards (DOC) approach.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Impeements hook_cron().
+ */
+function doc_workout_cron() {
+  
+}
+
+/**
+ * Assign an exercise task to be completed.
+ *
+ * @return string
+ */
+function doc_workout_assign_exercise_task() {
+  $reps = doc_workout_get_reps();
+  $exercise = doc_workout_get_exercise();
+
+  return format_string('Do @reps @exercises', array('@reps' => $reps, '@exercise' => $exercise));
+}
+
+
+/**
+ * Get the exercise to be done.
+ *
+ * @return string
+ */
+function doc_workout_get_exercise() {
+  $default_exercise_list=array(
+    'burpee'   => 'Burpee',
+    'situp'    => 'Situp',
+    'squat'    => 'Squat',
+    'backarch' => 'Back Arch',
+  );
+
+  return $default_exercise_list[array_rand($default_exercise_list)];
+}
+
+/**
+ * Get the number of reps to be done.
+ *
+ * @return int
+ */
+function doc_workout_get_reps() {
+  $default_rep_list = array_merge(range(2,10), array(12,15,20));
+
+  return $default_rep_list[array_rand($default_rep_list)];
+}
